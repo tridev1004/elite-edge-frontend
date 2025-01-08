@@ -12,15 +12,9 @@ export default function TabsContainer() {
         fill
       >
         <Tab eventKey="History" title="History">
+        
           <p className="mb-2">
-            Our company was founded <b>in 2019</b> by a group of young designers
-            who were passionate about creating modern, affordable furniture.
-            They started out with a small line of minimalist furniture,
-            including tables, chairs, and sofas, that quickly gained popularity
-            among design enthusiasts.
-          </p>
-          <p className="mb-2">
-            <b>In 2020</b>, we launched an online store and began shipping our
+            <b>Sometime ago</b>, we launched an online store and began shipping our
             furniture all over the world. We also expanded our product line to
             include home decor items, such as wall art and lighting, which
             helped to attract a wider audience.

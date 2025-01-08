@@ -13,7 +13,7 @@ import {
   faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
 
-import logo1 from "../../assets/logos/logo-footer.png";
+import logo1 from "../../assets/logos/header.png";
 
 const Footer = () => {
   const [showFollowUs, setShowFollowUs] = useState(false);
@@ -83,7 +83,7 @@ const Footer = () => {
               <h6 className="text-light d-none d-sm-block ">Follow Us</h6>
               <div className="social-icons">
                 <Link
-                  to="https://instagram.com/comfy_store4?igshid=MzNlNGNkZWQ4Mg=="
+                  to="https://instagram.com/eliteedge_store4?igshid=MzNlNGNkZWQ4Mg=="
                   className="me-4 link-light  hover-color-yellow"
                 >
                   <FontAwesomeIcon
@@ -179,10 +179,10 @@ const Footer = () => {
 
                   <span className="contacts">
                     <Link
-                      to="mailto:comfyproject20@gmail.com"
+                      to="mailto:eliteedgeproject20@gmail.com"
                       className=" hover-color-yellow footer-color"
                     >
-                      comfyproject20@gmail.com
+                      eliteedgeproject20@gmail.com
                     </Link>
                   </span>
                 </p>
@@ -232,7 +232,7 @@ const Footer = () => {
         <hr className="footer-color" />
         <div className="col-12 col-sm pt-2 pb-3 d-flex justify-content-start justify-content-sm-center text-center footer-color">
           <h6>
-            © Copyright 2023 Comfy Store. All Rights Reserved. Design By
+            © Copyright 2023 eliteedge Store. All Rights Reserved. Design By
             Team3-ITI
           </h6>
         </div>
