@@ -35,7 +35,7 @@ const ContactInfo = () => {
                 </div>
                 <div className="col-md-9 col-lg-10 contact-info ">
                   <h3 className="d-block fs-5 ">Address</h3>
-                  <p> Cairo Festival City, New Cairo, Egypt </p>
+                  <p> Moradabad,Up</p>
                 </div>
               </div>
               <hr />
@@ -56,7 +56,7 @@ const ContactInfo = () => {
                 </div>
                 <div className="col-md-9 col-lg-10 contact-info">
                   <h3 className="d-block fs-5">Email</h3>
-                  <p>comfyproject20@gmail.com</p>
+                  <p>eliteedgeproject20@gmail.com</p>
                 </div>
               </div>
               <hr />

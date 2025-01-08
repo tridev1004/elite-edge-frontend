@@ -21,7 +21,7 @@ import ToggleAsideBtn from "./toggleAsideBtn";
 import style from "../../pages/dashboard/dashboard.module.css";
 
 // assets
-import fullLogo from "../../assets/logos/logo-header.png";
+import fullLogo from "../../assets/logos/header.png";
 
 const navLinks = [
   {
