@@ -231,10 +231,10 @@ const Footer = () => {
       <div className="raw">
         <hr className="footer-color" />
         <div className="col-12 col-sm pt-2 pb-3 d-flex justify-content-start justify-content-sm-center text-center footer-color">
-          <h6>
-            © Copyright 2023 eliteedge Store. All Rights Reserved. Design By
-            Team3-ITI
-          </h6>
+        <h6>
+      © Copyright {new Date().getFullYear()} EliteEdge Store. All Rights Reserved. Design By
+      Team3-ITI
+    </h6>
         </div>
       </div>
     </footer>

@@ -40,6 +40,9 @@ const FAQ = () => {
                 {" "}
                 {item.id}- {item.heading}{" "}
               </h2>
+
+
+              
               <p className="mb-0"> {item.content} </p>
             </div>
           ))}
