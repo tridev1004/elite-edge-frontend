@@ -25,9 +25,6 @@ EliteEdge is a MERN fullstack furniture Ecommerce project that has the following
 - Filter products by price, categoty and brand
 - Contact form
 
-### Screenshot
-
-![](./src/assets/readme-screenshot.png)
 
 ### Links
 
