@@ -198,7 +198,7 @@ const UsersDash = () => {
                       City
                     </th>
                     <th scope="col">Orders</th>
-                    <th scope="col">Actions</th>
+                    {/* <th scope="col">Actions</th> */}
                   </tr>
                 </thead>
                 <tbody>
@@ -242,7 +242,7 @@ const UsersDash = () => {
                             {user.address.city !== "" ? user.address.city : "x"}
                           </td>
                           <td className="text-center">{user.order.length}</td>
-                          <td className="text-center">
+                          {/* <td className="text-center">
                             <FontAwesomeIcon
                               icon={faTrashCan}
                               type="button"
@@ -252,7 +252,7 @@ const UsersDash = () => {
                               }}
                               className="text-danger"
                             />
-                          </td>
+                          </td> */}
                         </tr>
                       );
                     })
