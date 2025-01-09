@@ -227,7 +227,7 @@ const Footer = () => {
         <div className="col-12 col-sm pt-2 pb-3 d-flex justify-content-start justify-content-sm-center text-center footer-color">
         <h6>
       © Copyright {new Date().getFullYear()} EliteEdge Store. All Rights Reserved. Design By
-      Team3-ITI
+      Tridev
     </h6>
         </div>
       </div>

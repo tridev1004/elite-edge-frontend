@@ -8,10 +8,10 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 //component
-import { showToast } from "../../store/slices/toastSlice";
 
 //style
 import style from "../../pages/contact/contact.module.css";
+import { toast } from "sonner";
 
 const ContactForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -47,13 +47,14 @@ const ContactForm = () => {
         templateParams,
         "TsoWOt-ZQTaLMUt3q"
         );
-        dispatch(
-        showToast("Thanks for contacting us. We'll get back to you as soon as possible.")
-        );
+    
+        toast.success("Thanks for contacting us. We'll get back to you as soon as possible.")
+        
     } 
     catch (error) {
         console.log(error.text);
-        dispatch(showToast("Failed to send Message! Please try again later!"));
+        
+        toast.error("Failed to send Message! Please try again later!");
     }
     setIsSubmitting(false);
     resetForm();
