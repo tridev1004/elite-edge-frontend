@@ -119,14 +119,14 @@ const ProductCard = ({ product }) => {
           {product.discount > 0 ? (
             <div className="d-flex align-items-center justify-content-center gap-3">
               <span className="fw-semibold">
-                $
+              ₹
                 {(
                   product.price -
                   (product.price * product.discount) / 100
                 ).toFixed(2)}
               </span>
               <span className="color-old-price text-decoration-line-through">
-                ${product.price}
+              ₹{product.price}
               </span>
             </div>
           ) : (
