@@ -106,13 +106,7 @@ const Footer = () => {
                     className="hover-color-yellow"
                   />
                 </Link>
-                <Link to="/" className="me-4 link-light">
-                  <FontAwesomeIcon
-                    icon={faGithub}
-                    size="lg"
-                    className="hover-color-yellow"
-                  />
-                </Link>
+               
               </div>
             </div>
           </div>
