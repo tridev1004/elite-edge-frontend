@@ -17,7 +17,7 @@ const ToastInfo = ({ msg, show, onDismissToast }) => {
         autohide
       >
         <Toast.Header className="justify-content-end bg-white">
-          <strong className="me-auto">Comfy</strong>
+          <strong className="me-auto">Elite Edge</strong>
         </Toast.Header>
         <Toast.Body className="text-white">{msg}</Toast.Body>
       </Toast>

@@ -61,6 +61,7 @@ const Trending = () => {
       });
   }, []);
 
+  console.log(product);
   return (
     <>
       <div className={`${styles.trendingSection}`}>

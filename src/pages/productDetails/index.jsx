@@ -34,6 +34,7 @@ const ProductDetails = () => {
       })
       .catch((error) => console.log(error));
   }, [id]);
+  console.log(data)
 
   return data ? (
     <div id="prodcut-details" className="pb-5">

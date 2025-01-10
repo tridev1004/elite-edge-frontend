@@ -1,21 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
-
-// font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlassPlus,
   faDownLeftAndUpRightToCenter,
 } from "@fortawesome/free-solid-svg-icons";
-
-// full screen
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-
-// components
 import ImageMagnifier from "./imageMagnifier";
 import FullScreenCarousel from "./fullScreenCarousel";
 import Spinner from "../common/spinner";
-
-// style
 import style from "../../pages/productDetails/productDetails.module.css";
 
 const Images = ({ imgs, name }) => {
@@ -24,11 +16,14 @@ const Images = ({ imgs, name }) => {
   const handle = useFullScreenHandle();
 
   const handleFullscreenChange = useCallback(
-    (state, handle) => setShowCarousel(state),
-    [handle]
+    (state) => setShowCarousel(state),
+    []
   );
 
   const updateUrl = (url) => {
+    if (url.startsWith("http://") || url.startsWith("https://")) {
+      return url;
+    }
     return process.env.REACT_APP_BASE_URL + "/" + url.replace(/\\/g, "/");
   };
 
@@ -39,7 +34,7 @@ const Images = ({ imgs, name }) => {
   };
 
   useEffect(() => {
-    if (imgs) {
+    if (imgs && imgs.length > 0) {
       handleImgChange(imgs[0]);
     }
   }, [imgs]);
@@ -47,7 +42,7 @@ const Images = ({ imgs, name }) => {
   return imgs ? (
     <>
       <FullScreen handle={handle} onChange={handleFullscreenChange}>
-        {showCarousel ? (
+        {showCarousel && (
           <>
             <button
               type="button"
@@ -58,8 +53,6 @@ const Images = ({ imgs, name }) => {
             </button>
             <FullScreenCarousel imgs={imgs} alt={name} />
           </>
-        ) : (
-          ""
         )}
       </FullScreen>
       <div className={`${style["sticky-top"]} position-sticky`}>
@@ -76,9 +69,12 @@ const Images = ({ imgs, name }) => {
                   onClick={() => handleImgChange(img)}
                 >
                   <img
-                    src={process.env.REACT_APP_BASE_URL + "/" + img.src}
+                    src={updateUrl(img.src)}
                     alt={name}
                     className="img-fluid"
+                    onError={(e) =>
+                      (e.target.src = "/path-to-placeholder-image.jpg")
+                    }
                   />
                 </button>
               ))}

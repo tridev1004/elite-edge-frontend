@@ -140,7 +140,7 @@ export default function PaymentMethod() {
           </div>
           <hr className="border" />
           <small className={`${style.gray} mt-2`}>
-            All Rights Reserved to comfy team
+            All Rights Reserved to eliteedge team
           </small>
         </div>
       </div>

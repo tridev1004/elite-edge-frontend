@@ -50,7 +50,7 @@ const Header = ({ isMediumScreen, cart }) => {
       >
         <div className="container-fluid">
           <Link to="/" className="nav-link">
-            <img src={logo} alt="comfy logo" className="logo img-fluid" />
+            <img src={logo} alt="eliteedge logo" className="logo img-fluid" />
           </Link>
           <button
             className="navbar-toggler"

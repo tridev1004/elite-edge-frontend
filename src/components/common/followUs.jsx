@@ -23,7 +23,7 @@ import post6 from "../../assets/instagram/insta-6.jpg";
 import post7 from "../../assets/instagram/insta-7.jpg";
 
 const posts = [
-  { id: 0, src: post1, link: "https://www.instagram.com/comfy_store4/" },
+  { id: 0, src: post1, link: "https://www.instagram.com/Elite Edge_store4/" },
   {
     id: 1,
     src: post2,
