@@ -15,15 +15,15 @@ const Services = () => {
             <div className={styles.icon}>
             <FontAwesomeIcon icon={faCube}/>
             </div>
-            <h3>Free Worldwide Shipping</h3>
-            <p>On all orders over $75.00</p>
+            <h3>Free  Shipping</h3>
+            <p>On all orders over ₹25,000.00</p>
         </div>
         <div className={`col-sm-12 col-md-4 mb-md-0 mb-4 col-lg-4 text-center ${styles.item}`}>
             <div className={styles.icon}>
             <FontAwesomeIcon icon={faCreditCard}/>
             </div>
             <h3>100% Payment Secure</h3>
-            <p>We ensure secure payment with PEV</p>
+            <p>We ensure secure payment.</p>
         </div>
         <div className={`col-sm-12 col-md-4 col-lg-4 text-center ${styles.item}`}>
             <div className={styles.icon}>
