@@ -66,15 +66,23 @@ const ProductCard = ({ product }) => {
       <div className="holder position-relative overflow-hidden">
         <Link to={`/product-details/${product._id}`} className="d-block">
           <img
-            src={process.env.REACT_APP_BASE_URL + "/" + product.images[0].src}
+            src={
+              product.images[0].src.startsWith("http")
+                ? product.images[0].src
+                : `${process.env.REACT_APP_BASE_URL}/${product.images[0].src}`
+            }
             alt={product.name}
             className="img-fluid card-img-top rounded-0"
           />
           <img
             src={
               product.images[1]
-                ? process.env.REACT_APP_BASE_URL + "/" + product.images[1].src
-                : process.env.REACT_APP_BASE_URL + "/" + product.images[0].src
+                ? product.images[1].src.startsWith("http")
+                  ? product.images[1].src
+                  : `${process.env.REACT_APP_BASE_URL}/${product.images[1].src}`
+                : product.images[0].src.startsWith("http")
+                ? product.images[0].src
+                : `${process.env.REACT_APP_BASE_URL}/${product.images[0].src}`
             }
             alt={product.name}
             className="img-fluid card-img-top rounded-0 hover-img position-absolute w-100 h-100 top-0 start-0"
@@ -119,14 +127,14 @@ const ProductCard = ({ product }) => {
           {product.discount > 0 ? (
             <div className="d-flex align-items-center justify-content-center gap-3">
               <span className="fw-semibold">
-              ₹
+                ₹
                 {(
                   product.price -
                   (product.price * product.discount) / 100
                 ).toFixed(2)}
               </span>
               <span className="color-old-price text-decoration-line-through">
-              ₹{product.price}
+                ₹{product.price}
               </span>
             </div>
           ) : (

@@ -176,7 +176,7 @@ function CartModal({ showModal, hideModal }) {
                             className="px-2"
                           />
                           {cart.totalPrice < 1200 &&
-                            `Spend $${(1200 - cart.totalPrice).toFixed(
+                            `Spend ₹${(1200 - cart.totalPrice).toFixed(
                               2
                             )}  more and get Free Shipping!`}
                           {cart.totalPrice >= 1200 &&
@@ -186,7 +186,7 @@ function CartModal({ showModal, hideModal }) {
 
                       <div className="justify-content-between d-flex py-2 fs-6 w-100">
                         <strong> Total Price </strong>
-                        <strong>${cart.totalPrice}</strong>
+                        <strong>₹{cart.totalPrice}</strong>
                       </div>
 
                       <div className="border-0 justify-content-center text-center w-100">
