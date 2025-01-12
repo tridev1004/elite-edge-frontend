@@ -9,7 +9,7 @@ import Spinner from "../common/spinner";
 import style from "../../pages/productDetails/productDetails.module.css";
 
 const FullScreenCarousel = ({ imgs, alt }) => {
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
@@ -27,7 +27,7 @@ const FullScreenCarousel = ({ imgs, alt }) => {
         <Carousel.Item key={img._id}>
           <img
             className={`${style["carousel-img"]} d-block img-fluid mx-auto`}
-            src={process.env.REACT_APP_BASE_URL + "/" + img.src}
+            src={ img.src}
             alt={`${alt} - img ${indx}`}
           />
         </Carousel.Item>
