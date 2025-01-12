@@ -50,7 +50,7 @@ const CategoryForm = ({ initialValues, onSubmit, loading }) => {
                 <img
                   src={
                     imageUrl === null
-                      ? process.env.REACT_APP_BASE_URL + "/" + initialValues.image
+                      ? initialValues.image[0].src
                       : imageUrl
                   }
                   alt={`Current category: ${values.name}`}

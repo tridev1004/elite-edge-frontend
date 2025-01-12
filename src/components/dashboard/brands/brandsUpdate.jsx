@@ -130,9 +130,8 @@ const BrandsUpdate = () => {
                     <img
                       src={
                         image === null
-                          ? process.env.REACT_APP_BASE_URL +
-                            "/" +
-                            brandById.image
+                          ? 
+                            brandById.image[0].src
                           : URL.createObjectURL(image)
                       }
                       alt="Current brand"
