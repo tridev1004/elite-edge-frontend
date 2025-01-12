@@ -260,7 +260,7 @@ const ProductForm = ({
               key={image._id || `${image.name}-${index}`}
               src={
                 image.src
-                  ? process.env.REACT_APP_BASE_URL + "/" + image.src
+                  ? image.src
                   : URL.createObjectURL(image)
               }
               productName={productName}
