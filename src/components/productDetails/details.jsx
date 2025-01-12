@@ -66,13 +66,27 @@ const Details = ({ product }) => {
   };
 
   const handleBuyProduct = () => {
-    if (!inCart) {
-      setShowBuyBtnSpinner(true);
-      handleAddToCart();
-    } else {
-      navigate("/checkout");
-    }
+    if (!terms) return; // Ensure terms are accepted
+  
+    const productDetails = `
+  *Product Details:*
+  - Name: ${product.name}
+  - Price: ${product.price}
+  - Discount: ${product.discount || "None"}
+  - Selected Color: ${activeColor.color}
+  - Quantity: ${activeQuantity}
+  `;
+  
+    const imageUrl = product.images?.[0]?.src || ""; // Assuming product.images contains an array of images
+    const message = `Hello, I would like to buy the following product:\n\n${productDetails}\nImage: ${imageUrl}`;
+    const encodedMessage = encodeURIComponent(message);
+  
+    const whatsappNumber = "+919319748616"; // Replace with your WhatsApp number
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+  
+    window.open(whatsappUrl, "_blank"); // Open WhatsApp in a new tab
   };
+  
 
   useEffect(() => {
     // wait untill product added to cart then navigate to checkout
@@ -181,6 +195,7 @@ const Details = ({ product }) => {
             disabled={
               activeColor.stock > 0 && cart.role !== "admin" ? false : true
             }
+
             className="btn btn-bg-dark text-white text-capitalize px-5 rounded-2 d-block mx-auto"
           >
             Add to cart
@@ -222,9 +237,8 @@ const Details = ({ product }) => {
                 ? true
                 : false
             }
-            onClick={() =>
-              cart.items ? handleBuyProduct() : dispatch(showLoginModal(true))
-            }
+            onClick={handleBuyProduct}
+
           >
             buy it now
           </button>
