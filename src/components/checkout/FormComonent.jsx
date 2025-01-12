@@ -24,10 +24,7 @@ const DisplayingErrorMessagesSchema = Yup.object().shape({
     .max(50, "Full name must be less than 50 characters"),
   phone: Yup.string()
     .required("Required")
-    .matches(
-      /^(\+2)?01[0-2]{1}[0-9]{8}$/,
-      "Invalid phone number. Must be an Egyptian phone number"
-    ),
+    ,
   address: Yup.object({
     city: Yup.string().required("Required").label("City"),
     street: Yup.string().label("Street").required("Required"),
@@ -42,7 +39,7 @@ const DisplayingErrorMessagesSchema = Yup.object().shape({
       .required("Required")
       .typeError("postalCode must be a number")
       .label("Postal Code")
-      .length(5, "Postal code must be exactly 5 digits")
+      .length(6, "Postal code must be exactly 6 digits")
       .matches(/(?!0)[0-9]{5}/, "Postal code must not start with zero"),
     country: Yup.string(),
   }),
@@ -153,7 +150,7 @@ export default function FormComonent() {
       >
         {({ errors, touched }) => (
           <Form>
-            <h6> Contact </h6>
+            <h6> Contact  </h6>
             <div className="form-group form-floating ">
               <Field
                 name="phone"
