@@ -20,11 +20,14 @@ const Images = ({ imgs, name }) => {
     []
   );
 
+
+  console.log(imgs);
+
   const updateUrl = (url) => {
     if (url.startsWith("http://") || url.startsWith("https://")) {
       return url;
     }
-    return process.env.REACT_APP_BASE_URL + "/" + url.replace(/\\/g, "/");
+    return url.replace(/\\/g, "/");
   };
 
   const handleImgChange = (img) => {
