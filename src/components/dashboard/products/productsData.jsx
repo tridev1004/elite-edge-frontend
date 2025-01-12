@@ -120,6 +120,7 @@ const ProductsData = () => {
   useEffect(() => {
     getAllData();
   }, [searchParams]);
+   console.log(data)
 
   return (
     <>
@@ -218,7 +219,7 @@ const ProductsData = () => {
                         {product.images.map((ele) => (
                           <img
                             key={ele._id}
-                            src={process.env.REACT_APP_BASE_URL + "/" + ele.src}
+                            src={ ele.src}
                             alt={product.name}
                             className={`${style["dash-prod-img"]} mx-auto d-block mb-2 border img-fluid rounded-2`}
                           />
