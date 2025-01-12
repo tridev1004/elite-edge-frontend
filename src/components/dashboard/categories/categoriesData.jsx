@@ -103,14 +103,14 @@ const CategoriesData = () => {
       })
       .then((response) => {
         if (response.status === 200) {
-          toast.success("Category was deleted successfully!")
+          toast.success("Category was deleted successfully!");
           setDisplayedCategories(
             displayedCategories.filter((category) => category._id !== id)
           );
           setTotalCategories(totalCategories - 1);
           setCategoryToDelete(null);
         } else {
-         toast.error("Failed to delete Category! Please try again later!")
+          toast.error("Failed to delete Category! Please try again later!");
         }
       })
       .catch((error) => {
@@ -121,6 +121,7 @@ const CategoriesData = () => {
   function onPageChange(page) {
     setCurrentPage(page);
   }
+  console.log(displayedCategories);
 
   return (
     <div className="py-4">
@@ -177,16 +178,17 @@ const CategoriesData = () => {
                         {category.products_id.length}
                       </td>
                       <td>
-                        <img
-                          src={
-                            process.env.REACT_APP_BASE_URL +
-                            "/" +
-                            category.image
-                          }
-                          alt={category.name}
-                          className={`${dashStyle["categories-img"]}`}
-                        />
+                        {category.image?.length > 0 ? (
+                          <img
+                            src={category.image[0].src} // Use the correct src from the data
+                            alt={category.name || "Category Image"} // Provide meaningful alt text
+                            className={`${dashStyle["categories-img"]}`} // Keep styling
+                          />
+                        ) : (
+                          <span>No Image</span> // Graceful fallback for missing images
+                        )}
                       </td>
+
                       <td className="text-center">
                         <FontAwesomeIcon
                           icon={faEdit}
