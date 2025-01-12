@@ -88,10 +88,7 @@ const AccountInfo = ({ user, token,setUser }) => {
           phone: Yup.string()
             .optional()
             .nullable()
-            .matches(
-              /^(\+2)?01[0-2]{1}[0-9]{8}$/,
-              "Please enter a valid Egyptian phone number."
-            ),
+         ,
           address: Yup.object({
             city: Yup.string().optional().nullable().label("City"),
             street: Yup.string().optional().nullable().label("Street"),

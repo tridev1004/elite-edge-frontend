@@ -39,7 +39,7 @@ export default function ShoppingCardComponent() {
               <div className="col-2 ms-0 ps-0 ">Subtotal</div>
               <div className="col-7"></div>
               <div className="col-2">
-                <p>${totalPrice}</p>
+                <p>₹{totalPrice}</p>
               </div>
             </div>
             <div className={`${style.Shipping}  mb-1 row mx-0`}>
@@ -49,7 +49,7 @@ export default function ShoppingCardComponent() {
                 {shipping === 0 ? (
                   <p className="">free shipping</p>
                 ) : (
-                  <p className="">${shipping}</p>
+                  <p className="">₹{shipping}</p>
                 )}
               </div>
             </div>
@@ -60,7 +60,7 @@ export default function ShoppingCardComponent() {
 
               <div className="col-sm-7 col-md-4 col-4">
                 <p className=" ">
-                  <span className={`${style.currency}`}> USD</span>$
+                  <span className={`${style.currency}`}> INR</span>₹
                   {priceWithShapping}
                 </p>
               </div>
