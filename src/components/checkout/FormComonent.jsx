@@ -72,7 +72,7 @@ export default function FormComonent() {
           building: user?.address?.building || "",
           city: user?.address?.city || "",
           governorate: user?.address?.governorate || "",
-          country: "Egypt",
+          country: "India",
         },
       };
     }
@@ -241,7 +241,7 @@ export default function FormComonent() {
                   <option value="" id="0" disabled className={`${style.gray} `}>
                     Country
                   </option>
-                  <option value="Egypt">Egypt </option>
+                  <option value="India">India </option>
                 </Field>
                 <label htmlFor="country">Country</label>
 

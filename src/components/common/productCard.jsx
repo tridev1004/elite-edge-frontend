@@ -21,7 +21,7 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    
+
     if (cart.items) {
       setShowBtnSpinner(true);
     }
@@ -130,7 +130,7 @@ const ProductCard = ({ product }) => {
               <span className="fw-semibold">
                 ₹
                 {(
-                  product.price -
+                  product?.price -
                   (product.price * product.discount) / 100
                 ).toFixed(2)}
               </span>

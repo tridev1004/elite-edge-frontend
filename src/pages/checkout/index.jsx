@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 //components
 import ShoppingCardComponent from "../../components/checkout/ShoppingCardComponent";
 import Breadcrumbcomponant from "../../components/checkout/Breadcrumbcomponant";
-import logoimg from "../../assets/logos/logo-header.png";
+import logoimg from "../../assets/logos/header.png";
 //style
 import style from "./checkout.module.css";
 

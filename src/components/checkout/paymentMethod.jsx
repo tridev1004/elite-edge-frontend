@@ -105,7 +105,7 @@ export default function PaymentMethod() {
             <div className="row">
               <div className="col-4 "> standard</div>
               <div className="col-5"> </div>
-              <div className="col-2"> ${shippingValue}</div>
+              <div className="col-2"> ₹{shippingValue}</div>
             </div>
           </div>
           <div className="row mb-4  w-100 mx-auto  ">

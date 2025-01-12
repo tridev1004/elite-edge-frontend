@@ -12,8 +12,7 @@ export default function ProductCardCompnant({ index, item }) {
             className={`${style.productImg}  `}
             alt={item.name}
             src={`${
-              process.env.REACT_APP_BASE_URL +
-              "/" +
+             
               item?.product_id?.images[0]?.src
             }`}
           />
@@ -29,13 +28,13 @@ export default function ProductCardCompnant({ index, item }) {
         </div>
         <div className="col-2 mt-3  ">
           <p className="mb-0">
-            $
+          ₹
             {item.product_id.price -
               (item.product_id.price * item.product_id.discount) / 100}
           </p>
           {item.product_id.discount !== 0 && (
             <p className={`${style.gray} mb text-decoration-line-through`}>
-              ${item.product_id.price}
+             ₹{item.product_id.price}
             </p>
           )}
         </div>

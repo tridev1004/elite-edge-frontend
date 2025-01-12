@@ -128,13 +128,13 @@ const ProductsUpdate = () => {
       <h1 className="h4 mb-4 py-3">Edit Product</h1>
       <Formik
         initialValues={{
-          name: data.name,
-          description: data.description,
-          price: data.price,
-          discount: data.discount,
-          category: data.category._id,
-          brand: data.brand._id,
-          colors: data.colors,
+          name: data?.name,
+          description: data?.description,
+          price: data?.price,
+          discount: data?.discount,
+          category: data?.category?._id,
+          brand: data?.brand._id,
+          colors: data?.colors,
         }}
         validationSchema={formSchema}
         onSubmit={handleUpdateProduct}
