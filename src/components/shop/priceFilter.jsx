@@ -29,11 +29,11 @@ const PriceFilter = ({ min, max, value, onFilter }) => {
   return (
     <div className="filter price-filter position-relative mb-4 mb-md-0">
       <span className="position-absolute start-0 top-100 pt-2">
-        {min}${minTooClose && `-${Math.floor(value)}$`}
+        {min}₹{minTooClose && `-${Math.floor(value)}$`}
       </span>
       <span className="position-absolute end-0 top-100 pt-2">
-        {maxTooClose && `${Math.floor(value)}$-`}
-        {value < max ? max : Math.floor(value)}$
+        {maxTooClose && `${Math.floor(value)}₹-`}
+        {value < max ? max : Math.floor(value)}₹
       </span>
       {!minTooClose && !maxTooClose ? (
         <span
@@ -42,7 +42,7 @@ const PriceFilter = ({ min, max, value, onFilter }) => {
             left: `${Math.floor(((value - min) * 100) / (max - min))}%`,
           }}
         >
-          {Math.floor(value)}$
+          {Math.floor(value)}₹
         </span>
       ) : (
         ""

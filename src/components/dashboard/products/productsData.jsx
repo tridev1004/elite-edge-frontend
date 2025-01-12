@@ -187,14 +187,14 @@ const ProductsData = () => {
                       </td>
                       {/* disount */}
                       <td className="text-center">
-                        {product.discount > 0 ? `${product.discount}%` : 0}
+                        {product.discount > 0 ? `${product?.discount}%` : 0}
                       </td>
                       {/* category */}
                       <td className="text-center text-capitalize">
-                        {product.category.name}
+                        {product?.category?.name}
                       </td>
                       {/* brand */}
-                      <td className="text-center">{product.brand.name}</td>
+                      <td className="text-center">{product?.brand?.name}</td>
                       {/* stock */}
                       <td>
                         <div>

@@ -93,7 +93,7 @@ function CartModal({ showModal, hideModal }) {
                   </span>
                 </div>
                 <div className="modal-body">
-                  {cart.items.length === 0 ? (
+                  {cart?.items?.length === 0 ? (
                     <div className="text-center pt-4">
                       <p>Your cart is empty.</p>
                       <button
@@ -111,7 +111,7 @@ function CartModal({ showModal, hideModal }) {
                       <div
                         className={`${style["product-container"]} container-fluid  w-100`}
                       >
-                        {cart.items.map((item, index) => (
+                        {cart?.items?.map((item, index) => (
                           <div key={item._id}>
                             <Item item={item} cartId={cart._id} />
                             {index !== cart.items.length - 1 && (
@@ -127,7 +127,7 @@ function CartModal({ showModal, hideModal }) {
                   )}
                 </div>
                 <div className="container px-4">
-                  {cart.items.length > 0 && (
+                  {cart?.items?.length > 0 && (
                     <div className={`${style["modal-footer"]}  w-100 border-0`}>
                       <div
                         className={`${style["progress"]} progress w-100 rounded-0 position-relative`}
@@ -137,21 +137,21 @@ function CartModal({ showModal, hideModal }) {
                           role="progressbar"
                           style={{
                             width:
-                              ((cart.totalPrice / 1200) * 100).toFixed(2) + "%",
+                              ((cart?.totalPrice / 1200) * 100).toFixed(2) + "%",
                             backgroundColor:
-                              cart.totalPrice >= 1200 ? "#343a40" : "#007bff",
+                              cart?.totalPrice >= 1200 ? "#343a40" : "#007bff",
                           }}
-                          aria-valuenow={cart.totalPrice}
+                          aria-valuenow={cart?.totalPrice}
                           aria-valuemin="0"
                           aria-valuemax="1200"
                         >
                           <span className="sr-only">
-                            {cart.totalPrice} of 1200
+                            {cart?.totalPrice} of 1200
                           </span>
                         </div>
                         <div
                           className={`${style["yellow-bar"]} progress-bar ${
-                            cart.totalPrice >= 1200 ?  style["yellow-bar-hidden"] : ""
+                            cart?.totalPrice >= 1200 ?  style["yellow-bar-hidden"] : ""
                           }`}
                           role="progressbar"
                           style={{
@@ -175,8 +175,8 @@ function CartModal({ showModal, hideModal }) {
                             size="lg"
                             className="px-2"
                           />
-                          {cart.totalPrice < 1200 &&
-                            `Spend ₹${(1200 - cart.totalPrice).toFixed(
+                          {cart?.totalPrice < 1200 &&
+                            `Spend ₹${(1200 - cart?.totalPrice).toFixed(
                               2
                             )}  more and get Free Shipping!`}
                           {cart.totalPrice >= 1200 &&

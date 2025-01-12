@@ -19,22 +19,23 @@ const AddCategory = () => {
   const[loading,setLoading ]=useState(false)
 
   const handleSubmit = (values) => {
-    setLoading(true)
+    setLoading(true); // Set loading to true at the start
+  
     if (!values.image) {
       setErrorMessage("Image is required");
+      setLoading(false); // Reset loading if validation fails
       return;
     }
-
+  
     const formData = new FormData();
     formData.append("name", values.name);
     formData.append("image", values.image);
-
+  
     axiosInstance
       .post("/categories", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
-          "x-access-token": token,
         },
       })
       .then((res) => {
@@ -48,11 +49,14 @@ const AddCategory = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
         setErrorMessage("Unable to add category, please try again.");
+      })
+      .finally(() => {
+        setLoading(false); // Reset loading state in the `finally` block
       });
-      setLoading(false)
   };
+  
 
   return (
     <div className="px-4 py-4">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { Loader2 } from "lucide-react";
+import "./category.css"
 
 const CategoryForm = ({ initialValues, onSubmit, loading }) => {
   const [imageUrl, setImageUrl] = useState(null);
@@ -87,7 +88,7 @@ const CategoryForm = ({ initialValues, onSubmit, loading }) => {
           >
             {loading ? (
               <>
-                <Loader2 className="me-2 animate-spin" />
+                <Loader2 className="loader-spin" />
                
               </>
             ) : (

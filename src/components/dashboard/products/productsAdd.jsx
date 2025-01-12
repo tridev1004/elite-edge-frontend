@@ -8,8 +8,7 @@ import * as Yup from "yup";
 // components
 import axiosInstance from "../../../apis/config";
 import ProductForm from "./productForm";
-import { showToast } from "../../../store/slices/toastSlice";
-
+import "./product.css"
 // style
 import style from "../../../pages/dashboard/dashboard.module.css";
 import { toast } from "sonner";
@@ -131,7 +130,7 @@ const ProductsAdd = () => {
               
               <button type="submit" className={`btn ${style["dash-btn"]}`}>
                
-               {loading? <Loader2 className="animate-spin me-2  "/>: "Add"}
+               {loading? <Loader2 className="loader-spin me-2  "/>: "Add"}
               </button>
             ) : (
               <button

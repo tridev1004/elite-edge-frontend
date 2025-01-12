@@ -68,23 +68,25 @@ const Details = ({ product }) => {
   const handleBuyProduct = () => {
     if (!terms) return; // Ensure terms are accepted
   
+    const colorName = activeColor.name || activeColor.color; // Use name if available, fallback to color code
     const productDetails = `
   *Product Details:*
   - Name: ${product.name}
   - Price: ${product.price}
   - Discount: ${product.discount || "None"}
-  - Selected Color: ${activeColor.color}
+  - Selected Color: ${colorName}
   - Quantity: ${activeQuantity}
   `;
   
     const imageUrl = product.images?.[0]?.src || ""; // Assuming product.images contains an array of images
-    const message = `Hello, I would like to buy the following product:\n\n${productDetails}\nImage: ${imageUrl}`;
+    const message = `Hello, I would like to buy the following product:\n\n${productDetails}\nPlease refer to the attached image.`;
     const encodedMessage = encodeURIComponent(message);
   
     const whatsappNumber = "+919319748616"; // Replace with your WhatsApp number
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
   
-    window.open(whatsappUrl, "_blank"); // Open WhatsApp in a new tab
+    // Open WhatsApp with the message, prompt the user to upload the image manually
+    window.open(whatsappUrl, "_blank");
   };
   
 

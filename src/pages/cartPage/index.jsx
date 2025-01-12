@@ -28,6 +28,7 @@ function CartPage() {
     navigate("/shop");
   };
 
+
   const handleCheckout = () => {
     const hasUnavailableItems = cart.items.some((item) => {
       const stock = item?.color
@@ -90,7 +91,7 @@ function CartPage() {
             </tr>
           ) : (
             <>
-              {cart.items.map((item, index) => (
+              {cart?.items?.map((item, index) => (
                 <CartItem
                   item={item}
                   cartId={cart._id}
