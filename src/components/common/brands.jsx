@@ -78,7 +78,7 @@ const Brands = () => {
               onMouseMove={handleDrag}
             >
               <img
-                src={process.env.REACT_APP_BASE_URL + "/" + brand.image}
+                src={ brand.image[0].src}
                 alt={brand.name}
                 className="d-block img-fluid"
               />
