@@ -42,11 +42,11 @@ const BrandsData = () => {
           },
         })
         .then((res) => {
-          setShowSpinner(false); 
+          setShowSpinner(false);
           setAllBrandsInPage(res.data);
           setAllBrands(res.data.data);
           setTotalBrands(res.data.totalBrands);
-          dispatch(setBrands(res.data.allData))
+          dispatch(setBrands(res.data.allData));
         })
         .catch((err) => {
           console.log(err);
@@ -112,7 +112,7 @@ const BrandsData = () => {
             setAllBrands(res.data.data);
             setTotalBrands(res.data.totalBrands);
             setBrandIdToDelete("");
-            dispatch(setBrands(res.data.allData))
+            dispatch(setBrands(res.data.allData));
           })
           .catch((err) => {
             console.log(err);
@@ -123,6 +123,7 @@ const BrandsData = () => {
         showToast("Failed to delete brand! Please try again later!");
       });
   }
+  console.log(allBrands);
   return (
     <div className="py-4">
       <h1 className={`mb-2 h4 py-3 ps-4 ${dashStyle["fw-bold"]}`}>
@@ -152,86 +153,87 @@ const BrandsData = () => {
         </div>
         {!showSpinner ? (
           <>
-        <div className="table-responsive mb-5">
-          <table className="table border-top">
-            <thead>
-              <tr>
-                <th scope="col" className="ps-4">
-                  #ID
-                </th>
-                <th scope="col">Name</th>
-                <th scope="col">Image</th>
-                <th scope="col">Category</th>
-                <th scope="col">Products</th>
-                <th scope="col" className="text-center">
-                  Actions
-                </th>
-              </tr>
-            </thead>
+            <div className="table-responsive mb-5">
+              <table className="table border-top">
+                <thead>
+                  <tr>
+                    <th scope="col" className="ps-4">
+                      #ID
+                    </th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Products</th>
+                    <th scope="col" className="text-center">
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
 
-            <tbody>
-              {allBrands?.length > 0 ? (
-                allBrands?.map((brand) => {
-                  return (
-                    <tr key={brand._id}>
-                      <td className={`ps-4`}>{brand._id}</td>
-                      <td>{brand.name}</td>
-                      <td>
-                        <img
-                          className={`${style["brand-image"]}`}
-                          src={
-                            process.env.REACT_APP_BASE_URL + "/" + brand.image
-                          }
-                          alt="brand"
-                        />
-                      </td>
-                      <td>{brand.category}</td>
-                      <td className={style.brandProduct}>
-                        {brand.products.length}
-                      </td>
-                      <td className="text-center">
-                        <Link
-                          to={`update/${brand._id}`}
-                          className={`btn p-0 ${dashStyle["dash-purple"]}`}
-                        >
-                          <FontAwesomeIcon
-                            icon={faPenToSquare}
-                            className={``}
-                          />
-                        </Link>
-                        <FontAwesomeIcon
-                          icon={faTrashCan}
-                          className="btn p-0 ms-2 text-danger"
-                          onClick={() => {
-                            setBrandIdToDelete(brand._id);
-                            setShowWarning(true);
-                          }}
-                        />
+                <tbody>
+                  {allBrands?.length > 0 ? (
+                    allBrands?.map((brand) => {
+                      return (
+                        <tr key={brand._id}>
+                          <td className={`ps-4`}>{brand._id}</td>
+                          <td>{brand.name}</td>
+                          <td>
+                            {brand.image?.length > 0 ? (
+                              <img
+                                className={`${style["brand-image"]}`}
+                                src={brand.image[0].src} // Use the direct src URL
+                                alt={`${brand.name} logo`} // Provide a descriptive alt text
+                              />
+                            ) : (
+                              <span>No Image</span> // Fallback for brands without images
+                            )}
+                          </td>
+                          <td>{brand.category}</td>
+                          <td className={style.brandProduct}>
+                            {brand.products.length}
+                          </td>
+                          <td className="text-center">
+                            <Link
+                              to={`update/${brand._id}`}
+                              className={`btn p-0 ${dashStyle["dash-purple"]}`}
+                            >
+                              <FontAwesomeIcon
+                                icon={faPenToSquare}
+                                className={``}
+                              />
+                            </Link>
+                            <FontAwesomeIcon
+                              icon={faTrashCan}
+                              className="btn p-0 ms-2 text-danger"
+                              onClick={() => {
+                                setBrandIdToDelete(brand._id);
+                                setShowWarning(true);
+                              }}
+                            />
+                          </td>
+                        </tr>
+                      );
+                    })
+                  ) : (
+                    <tr>
+                      <td colSpan="8" className="text-center">
+                        No brand found.
                       </td>
                     </tr>
-                  );
-                })
-              ) : (
-                <tr>
-                  <td colSpan="8" className="text-center">
-                    No brand found.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+                  )}
+                </tbody>
+              </table>
+            </div>
 
-        <DashPagination
-          totalPages={allBrandsInPage.totalPages}
-          currentPage={currentPage}
-          onPageChange={onPageChange}
-        />
-        </>
+            <DashPagination
+              totalPages={allBrandsInPage.totalPages}
+              currentPage={currentPage}
+              onPageChange={onPageChange}
+            />
+          </>
         ) : (
           <Spinner />
         )}
-
 
         {showWarning && brandIdToDelete && (
           <ConfirmPopup
