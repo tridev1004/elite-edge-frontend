@@ -138,7 +138,7 @@ const ProductCard = ({ product }) => {
               </span>
             </div>
           ) : (
-            <span className="fw-semibold">${product.price}</span>
+            <span className="fw-semibold">₹{product.price}</span>
           )}
         </div>
       </div>
