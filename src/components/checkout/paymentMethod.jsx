@@ -18,7 +18,8 @@ export default function PaymentMethod() {
   const [showBtnSpinner, SetShowBtnSpinner] = useState(false);
   const [isAddingOrder, setIsAddingOrder] = useState(false);
   const [buttonText, setButtonText] = useState("Confirm order");
-
+ const action = useSelector(state => state);
+ console.log(action)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -45,6 +46,47 @@ export default function PaymentMethod() {
 
   const priceWithShapping = (shipping + +totalPrice).toFixed(2);
   const formData = JSON.parse(localStorage.getItem("localFormData"));
+  const onConfirmWhatsAppClick = () => {
+    const orderDetails = {
+      address: formData?.address,
+      phone: formData?.phone,
+      totalPrice: priceWithShapping,
+      userId: cart?.user_id,
+      items: updatedAvailableItems?.map(item => ({
+        product: item?.product_id.name, // Use product name for better readability
+        quantity: item.quantity,
+        color: item.color,
+        price: item.product_id.price.toFixed(2),
+      })),
+    };
+  
+    // Construct WhatsApp message
+    const message = `
+      Order Confirmation:
+      - Name: ${formData?.name || "N/A"}
+      - Address: ${orderDetails.address || "N/A"}
+      - Phone: ${orderDetails.phone || "N/A"}
+      - Total Price: ₹${orderDetails.totalPrice || "N/A"}
+      - Items:
+      ${orderDetails.items
+        ?.map(
+          (item, index) =>
+            `${index + 1}. ${item.product} (Color: ${item.color}) - Qty: ${
+              item.quantity
+            } @ ₹${item.price}/unit`
+        )
+        .join("\n")}
+    `.trim();
+  
+    // WhatsApp API URL
+    const phoneNumber = "+919319748616"; // Replace with your WhatsApp number
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  
+    // Navigate to WhatsApp
+    window.open(whatsappUrl, "_blank");
+  };
+  
   const onConfirmClick = () => {
     SetShowBtnSpinner(true);
     setShowWarning(false);
@@ -149,7 +191,8 @@ export default function PaymentMethod() {
         <ConfirmPopup
           msg={"Are you sure you want to purchase?"}
           onConfirm={() => {
-            onConfirmClick();
+            // onConfirmClick();  code is commented for later use like if we are actually adding order for now send the order to whatsapp
+            onConfirmWhatsAppClick();
             setIsAddingOrder(true);
           }}
           onCancel={() => {
