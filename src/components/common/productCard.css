@@ -1,0 +1,115 @@
+.product-card {
+    border: 2px solid #f5f5dc; /* Light cream border */
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .product-image {
+    position: relative;
+    overflow: hidden;
+    background-color: #faf9f6; /* Slightly cream background for images */
+  }
+  
+  .product-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .product-image .hover-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .product-image:hover .hover-image {
+    opacity: 1;
+  }
+  
+  .product-details {
+    padding: 16px;
+    text-align: center;
+    background-color: #fffaf0; /* Light cream background for details */
+  }
+  
+  .product-details h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  
+  .product-details h3 a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .product-details h3 a:hover {
+    color: #007bff;
+  }
+  
+  .price {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+  
+  .price .current-price {
+    font-weight: bold;
+    color: #28a745;
+  }
+  
+  .price .original-price {
+    text-decoration: line-through;
+    color: #6c757d;
+    margin-left: 8px;
+  }
+  
+  .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn.add-to-cart {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn.add-to-cart:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn.in-cart {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .btn.in-cart:hover {
+    background-color: #1e7e34;
+  }
+  
+  .btn.out-of-stock {
+    background-color: #dc3545;
+    color: white;
+    cursor: not-allowed;
+  }
+  

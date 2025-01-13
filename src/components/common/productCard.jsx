@@ -11,6 +11,7 @@ import { showCartModal } from "../../store/slices/cartModalSlice";
 
 // functions
 import { addItemToCart } from "../../functions/cart";
+import "./productCard.css"; // Import the custom CSS
 
 const ProductCard = ({ product }) => {
   const [inCart, setInCart] = useState(false);
