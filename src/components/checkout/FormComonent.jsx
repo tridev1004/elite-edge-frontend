@@ -7,8 +7,8 @@ import * as Yup from "yup";
 import jwtDecode from "jwt-decode";
 
 import axiosInstance from "../../apis/config";
-import { cities } from "../../apis/cities";
-import { governoratesData } from "../../apis/governorates";
+
+import { Country, State, City } from "country-state-city";
 
 //componant
 import Spinner from "../common/spinner";
@@ -23,8 +23,7 @@ const DisplayingErrorMessagesSchema = Yup.object().shape({
     .min(3, "Full name must be at least 3 characters")
     .max(50, "Full name must be less than 50 characters"),
   phone: Yup.string()
-    .required("Required")
-    ,
+    .required("Required"),
   address: Yup.object({
     city: Yup.string().required("Required").label("City"),
     street: Yup.string().label("Street").required("Required"),
@@ -33,7 +32,7 @@ const DisplayingErrorMessagesSchema = Yup.object().shape({
       .required("Required")
       .min(1, "Building  can't be 0")
       .label("Building"),
-    governorate: Yup.string().label("Governorate").required("Required"),
+    governorate: Yup.string().label("State").required("Required"),
     apartment: Yup.string().label("Apartment").required("Required"),
     postalCode: Yup.string()
       .required("Required")
@@ -41,13 +40,16 @@ const DisplayingErrorMessagesSchema = Yup.object().shape({
       .label("Postal Code")
       .length(6, "Postal code must be exactly 6 digits")
       .matches(/(?!0)[0-9]{5}/, "Postal code must not start with zero"),
-    country: Yup.string(),
+    country: Yup.string().required("Required").label("Country"),
   }),
 });
 
 export default function FormComonent() {
   const [saveInfo, setSaveInfo] = useState(true);
   const [user, setUser] = useState("");
+  const [countries, setCountries] = useState([]);
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
 
   const navigate = useNavigate();
   const cart = useSelector(state => state.cart.cart);
@@ -72,7 +74,7 @@ export default function FormComonent() {
           building: user?.address?.building || "",
           city: user?.address?.city || "",
           governorate: user?.address?.governorate || "",
-          country: "India",
+          country: user?.address?.country || "",
         },
       };
     }
@@ -95,6 +97,8 @@ export default function FormComonent() {
         }
       })
       .catch(err => console.log(err));
+
+    setCountries(Country.getAllCountries());
   }, [decoded.id, token]);
 
   const formSubmit = submitdata => {
@@ -111,6 +115,7 @@ export default function FormComonent() {
         governorate: submitdata?.address?.governorate,
         apartment: submitdata?.address?.apartment,
         postalCode: submitdata?.address?.postalCode,
+        country: submitdata?.address?.country,
       },
     };
 
@@ -133,6 +138,21 @@ export default function FormComonent() {
         .catch(err => console.log(err));
     }
   };
+
+  const handleCountryChange = (setFieldValue, country) => {
+    setFieldValue('address.country', country);
+    setFieldValue('address.governorate', '');
+    setFieldValue('address.city', '');
+    setStates(State.getStatesOfCountry(country));
+    setCities([]);
+  };
+
+  const handleStateChange = (setFieldValue, country, state) => {
+    setFieldValue('address.governorate', state);
+    setFieldValue('address.city', '');
+    setCities(City.getCitiesOfState(country, state));
+  };
+
   if (!user) {
     return (
       <div>
@@ -148,7 +168,7 @@ export default function FormComonent() {
         validationSchema={DisplayingErrorMessagesSchema}
         onSubmit={formSubmit}
       >
-        {({ errors, touched }) => (
+        {({ errors, touched, setFieldValue, values }) => (
           <Form>
             <h6> Contact  </h6>
             <div className="form-group form-floating ">
@@ -229,19 +249,23 @@ export default function FormComonent() {
             </div>
             <div className="row mb-3 mt-0 ">
               <div
-                className={`${style.formGroup} ${style.gray} form-group form-floating  col-lg-6  col-sm-12`}
+                className={`${style.formGroup} ${style.gray} form-group form-floating  col-lg-4  col-sm-12`}
               >
                 <Field
                   className={`form-control ${style.gray}  ${style.input}`}
                   name="address.country"
                   id="country"
                   as="select"
-                  type="text"
+                  onChange={(e) => handleCountryChange(setFieldValue, e.target.value)}
                 >
-                  <option value="" id="0" disabled className={`${style.gray} `}>
-                    Country
+                  <option value="" disabled className={`${style.gray} `}>
+                    Select Country
                   </option>
-                  <option value="India">India </option>
+                  {countries.map((country) => (
+                    <option key={country.isoCode} value={country.isoCode}>
+                      {country.name}
+                    </option>
+                  ))}
                 </Field>
                 <label htmlFor="country">Country</label>
 
@@ -252,42 +276,32 @@ export default function FormComonent() {
                 )}
               </div>
 
-              <div className="form-group form-floating   col-lg-6 col-sm-12">
+              <div className="form-group form-floating col-lg-4 col-sm-12">
                 <Field
                   className={`form-control ${style.input} ${style.gray} `}
                   name="address.governorate"
                   id="governorate"
                   as="select"
-                  type="text"
+                  onChange={(e) => handleStateChange(setFieldValue, values.address.country, e.target.value)}
                 >
-                  <option value="" id="0" disabled>
-                    Governorate
+                  <option value="" disabled>
+                    Select State
                   </option>
-                  {governoratesData.map(governorate => (
-                    <option
-                      key={governorate.id}
-                      id={governorate.id}
-                      value={governorate.governorate_name_en}
-                    >
-                      {governorate.governorate_name_en}
+                  {states.map((state) => (
+                    <option key={state.isoCode} value={state.isoCode}>
+                      {state.name}
                     </option>
                   ))}
-                </Field>{" "}
-                <label htmlFor="postalCode">
-                  {" "}
-                  <label htmlFor="postalCode">Governorate</label>
-                </label>
-                {touched.address?.governorate &&
-                  errors.address?.governorate && (
-                    <div className="text-danger ms-2">
-                      {errors.address?.governorate}
-                    </div>
-                  )}
+                </Field>
+                <label htmlFor="governorate">State</label>
+                {touched.address?.governorate && errors.address?.governorate && (
+                  <div className="text-danger ms-2">
+                    {errors.address?.governorate}
+                  </div>
+                )}
               </div>
-            </div>
-            {/**=========city===========*/}
-            <div className="row mb-3 mt-0  form-floating ">
-              <div className="form-group form-floating  col-lg-6  col-sm-12">
+
+              <div className="form-group form-floating  col-lg-4  col-sm-12">
                 <Field
                   className={`form-control ${style.input} ${style.gray} `}
                   name="address.city"
@@ -295,31 +309,14 @@ export default function FormComonent() {
                   id="city"
                   as="select"
                 >
-                  <option value="" id="0" disabled>
-                    City
+                  <option value="" disabled>
+                    Select City
                   </option>
-                  {cities.map(city => {
-                    const selectedGovernorateValue =
-                      document.querySelector("#governorate")?.value;
-                    const selectedGovernorateOption = document.querySelector(
-                      `#governorate option[value="${selectedGovernorateValue}"]`
-                    );
-                    const selectedGovernorateId = selectedGovernorateOption
-                      ? selectedGovernorateOption.id
-                      : null;
-                    if (city?.governorate_id === selectedGovernorateId) {
-                      return (
-                        <option
-                          key={city.id}
-                          id={city.id}
-                          value={city.city_name_en}
-                        >
-                          {city.city_name_en}
-                        </option>
-                      );
-                    }
-                    return null;
-                  })}
+                  {cities.map((city) => (
+                    <option key={city.name} value={city.name}>
+                      {city.name}
+                    </option>
+                  ))}
                 </Field>
                 <label htmlFor="city">City</label>
 
@@ -328,26 +325,24 @@ export default function FormComonent() {
                     {errors.address?.city}
                   </span>
                 ) : null}
-                {/*====================*/}
-              </div>
-              <div className="form-group form-floating  col-lg-6  col-sm-12">
-                <Field
-                  name="address.postalCode"
-                  placeholder="postal Code"
-                  className="form-control"
-                  type="text"
-                  id="postalCode"
-                />
-                <label htmlFor="postalCode">Postal Code </label>
-                {touched.address?.postalCode && errors.address?.postalCode && (
-                  <div className="text-danger ms-2">
-                    {errors.address?.postalCode}
-                  </div>
-                )}
               </div>
             </div>
 
-            {/*====================*/}
+            <div className="form-group form-floating  col-lg-6  col-sm-12">
+              <Field
+                name="address.postalCode"
+                placeholder="postal Code"
+                className="form-control"
+                type="text"
+                id="postalCode"
+              />
+              <label htmlFor="postalCode">Postal Code </label>
+              {touched.address?.postalCode && errors.address?.postalCode && (
+                <div className="text-danger ms-2">
+                  {errors.address?.postalCode}
+                </div>
+              )}
+            </div>
 
             <div className="form-check my-3">
               <input
@@ -365,7 +360,6 @@ export default function FormComonent() {
                 save this information for next time{" "}
               </label>
             </div>
-            {/*====================*/}
 
             <div className="row mb-4  w-100 m-auto">
               <Link
@@ -391,3 +385,4 @@ export default function FormComonent() {
     </div>
   );
 }
+

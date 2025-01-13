@@ -42,7 +42,7 @@ const posts = [
   {
     id: 4,
     src: post5,
-    link: "https://www.instagram.com/p/CtzFWORo-Yx/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
+    link: "https://www.instagram.com/p/DEu5_royHlo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
   {
     id: 5,
