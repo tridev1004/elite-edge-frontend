@@ -1,5 +1,5 @@
 import { useNavigate, Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 //
@@ -18,6 +18,7 @@ export default function PaymentMethod() {
   const [showBtnSpinner, SetShowBtnSpinner] = useState(false);
   const [isAddingOrder, setIsAddingOrder] = useState(false);
   const [buttonText, setButtonText] = useState("Confirm order");
+  const [user,setUser] = useState();
  const action = useSelector(state => state);
  console.log(action)
   const dispatch = useDispatch();
@@ -26,7 +27,19 @@ export default function PaymentMethod() {
   const token = localStorage.getItem("userToken");
   const shippingValue = 15.0;
   // ===========
+  const getuser = localStorage.getItem("localFormData");
+  const userObject = JSON.parse(getuser); // Parse the string into an object
+  const userId = userObject._id;
+  useEffect(()=>{
 
+    const fetchData = async () => {
+      const response = await axiosInstance.get(`/user-get/${userId}`);
+      console.log(response.data);
+      setUser(response.data);
+
+    }
+    fetchData();
+  },[])
   const cart = useSelector(state => state.cart.cart);
 
   let totalPrice = 0;
@@ -69,7 +82,7 @@ export default function PaymentMethod() {
     // Construct WhatsApp message
     const message = `
     Order Confirmation:
-    - Name: ${formData?.name || "N/A"}
+    - Name: ${formData.fullName || "N/A"}
     - Address: ${formattedAddress || "N/A"}
     - Phone: ${orderDetails.phone || "N/A"}
     - Total Price: ₹${orderDetails.totalPrice || "N/A"}
