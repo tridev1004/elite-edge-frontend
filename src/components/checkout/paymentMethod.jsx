@@ -60,23 +60,30 @@ export default function PaymentMethod() {
       })),
     };
   
+    const formattedAddress =
+  formData?.address &&
+  `${formData.address.street || ""}, ${formData.address.city || ""}, ${
+    formData.address.state || ""
+  }, ${formData.address.postalCode || ""}`.trim();
+
     // Construct WhatsApp message
     const message = `
-      Order Confirmation:
-      - Name: ${formData?.name || "N/A"}
-      - Address: ${orderDetails.address || "N/A"}
-      - Phone: ${orderDetails.phone || "N/A"}
-      - Total Price: ₹${orderDetails.totalPrice || "N/A"}
-      - Items:
-      ${orderDetails.items
-        ?.map(
-          (item, index) =>
-            `${index + 1}. ${item.product} (Color: ${item.color}) - Qty: ${
-              item.quantity
-            } @ ₹${item.price}/unit`
-        )
-        .join("\n")}
-    `.trim();
+    Order Confirmation:
+    - Name: ${formData?.name || "N/A"}
+    - Address: ${formattedAddress || "N/A"}
+    - Phone: ${orderDetails.phone || "N/A"}
+    - Total Price: ₹${orderDetails.totalPrice || "N/A"}
+    - Items:
+    ${orderDetails.items
+      ?.map(
+        (item, index) =>
+          `${index + 1}. ${item.product} (Color: ${item.color}) - Qty: ${
+            item.quantity
+          } @ ₹${item.price}/unit`
+      )
+      .join("\n")}
+  `.trim();
+  
   
     // WhatsApp API URL
     const phoneNumber = "+919319748616"; // Replace with your WhatsApp number
