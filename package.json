@@ -17,6 +17,7 @@
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
     "comfy": "file:",
+    "country-state-city": "^3.2.1",
     "emailjs-com": "^3.2.0",
     "env-cmd": "^10.1.0",
     "formik": "^2.4.1",
