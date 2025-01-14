@@ -23,36 +23,36 @@ import post6 from "../../assets/instagram/insta-6.jpg";
 import post7 from "../../assets/instagram/insta-7.jpg";
 
 const posts = [
-  { id: 0, src: post1, link: "https://www.instagram.com/Elite Edge_store4/" },
+  { id: 0, src: post1, link: "https://www.instagram.com/p/DEu_D3fSjLx/" },
   {
     id: 1,
     src: post2,
-    link: "https://www.instagram.com/p/CtzFxFTIrsG/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
+    link: "https://www.instagram.com/p/DEu6k9QyE03/",
   },
   {
     id: 2,
     src: post3,
-    link: "https://www.instagram.com/p/CtzFkJMoQST/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
+    link: "https://www.instagram.com/eliteedgefurniture/p/DEu6hOvy-gn/",
   },
   {
     id: 3,
     src: post4,
-    link: "https://www.instagram.com/p/CtzGEPAocCz/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
+    link: "https://www.instagram.com/p/DEu6dT0ypJi/",
   },
   {
     id: 4,
     src: post5,
-    link: "https://www.instagram.com/p/DEu5_royHlo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    link: "https://www.instagram.com/eliteedgefurniture/p/DEu6bebSYxQ/",
   },
   {
     id: 5,
     src: post6,
-    link: "https://www.instagram.com/p/CtzFFLroLTA/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
+    link: "https://www.instagram.com/p/DEu6XzDS1pl/",
   },
   {
     id: 6,
     src: post7,
-    link: "https://www.instagram.com/p/CtzE_D0Ir9g/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
+    link: "https://www.instagram.com/eliteedgefurniture/p/DEu5_royHlo/",
   },
 ];
 
@@ -131,6 +131,7 @@ const FollowUs = () => {
                   isDragged && isMouseDown ? "dragged" : ""
                 } d-block text-decoration-none overflow-hidden position-relative`}
                 style={{ minHeight: "200px" }}
+                target="_blank"
               >
                 <InstaPost src={post.src} />
                 <div className="icon-holder w-100 h-100 position-absolute top-0 start-0 text-white d-flex justify-content-center align-items-center fs-2">

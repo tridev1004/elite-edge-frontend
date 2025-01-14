@@ -15,8 +15,8 @@ const Services = () => {
             <div className={styles.icon}>
             <FontAwesomeIcon icon={faCube}/>
             </div>
-            <h3>Free  Shipping</h3>
-            <p>On all orders over ₹25,000.00</p>
+            <h3>  Shipping to All over India</h3>
+            <p>On all orders over</p>
         </div>
         <div className={`col-sm-12 col-md-4 mb-md-0 mb-4 col-lg-4 text-center ${styles.item}`}>
             <div className={styles.icon}>
