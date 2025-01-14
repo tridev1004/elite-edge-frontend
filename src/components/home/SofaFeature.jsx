@@ -1,45 +1,76 @@
-import { SofaIcon as Couch, Leaf, Recycle } from 'lucide-react'
-import "./styles.css"
+import { SofaIcon as Couch, Leaf, Recycle } from "lucide-react";
+import "./styles.css";
+
 export default function SofaFeatureSection() {
   return (
-    <section className="py-24 bg-gray-100" style={{ marginTop: "5rem" }}>
+    <section className="sofa-feature-section">
       <div className="container px-6 text-center">
         <h2 className="text-4xl font-bold text-gray-800 mb-6">
           Comfort Meets Style
         </h2>
-        <p className="max-w-xl mx-auto text-lg text-gray-600 mb-12 text-muted">
-          We can also provide a design of your choice and bring it to life for you.
+        <p className="text-lg text-muted">
+          We can also provide a design of your choice and bring it to life for
+          you.
         </p>
 
-        <div className="grid gap-8 md:grid-cols-3 sm:grid-cols-1" style={{ display: "flex", gap: "3rem", marginTop: "5rem" }}>
+        <div className="sofa-feature-grid">
           <FeatureCard
-            icon={<Couch style={{ height: "112px", width: "112px", marginBottom: "1rem", color: "#f97316" }} />}
+            icon={
+              <Couch
+                className="icon"
+                style={{
+                  color: "#f97316",
+                  height: "112px",
+                  width: "112px",
+                  marginBottom: "1rem",
+                }}
+              />
+            }
             title="Supreme Comfort"
             description="Relax in style with our plush cushioning."
           />
           <FeatureCard
-            icon={<Leaf style={{ height: "64px", width: "64px", marginBottom: "1rem", color: "#10b981" }} />}
+            icon={
+              <Leaf
+                className="icon"
+                style={{
+                  color: "#10b981",
+                  height: "112px",
+                  width: "112px",
+                  marginBottom: "1rem",
+                }}
+              />
+            }
             title="Eco-Friendly Materials"
             description="Sustainably sourced fabrics and woods."
           />
           <FeatureCard
-            icon={<Recycle style={{ height: "64px", width: "64px", marginBottom: "1rem", color: "#3b82f6" }} />}
+            icon={
+              <Recycle
+                className="icon"
+                style={{
+                  color: "#3b82f6",
+                  height: "112px",
+                  width: "112px",
+                  marginBottom: "1rem",
+                }}
+              />
+            }
             title="5-Year Warranty"
             description="A decade-long guarantee on quality."
           />
         </div>
-
       </div>
     </section>
-  )
+  );
 }
 
 function FeatureCard({ icon, title, description }) {
   return (
-    <div className="flex flex-col items-center text-center">
+    <div className="feature-card">
       {icon}
-      <h3 className="text-lg font-semibold text-gray-800 mt-4">{title}</h3>
-      <p className="text-gray-600 mt-2">{description}</p>
+      <h3>{title}</h3>
+      <p>{description}</p>
     </div>
-  )
+  );
 }
