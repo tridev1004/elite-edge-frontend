@@ -1,9 +1,9 @@
 import { SofaIcon as Couch, Leaf, Recycle } from 'lucide-react'
-
+import "./styles.css"
 export default function SofaFeatureSection() {
   return (
-    <section className="py-24 bg-gray-100 " style={{ marginTop: "5rem" }}>
-      <div className="container px-6 text-center ">
+    <section className="py-24 bg-gray-100" style={{ marginTop: "5rem" }}>
+      <div className="container px-6 text-center">
         <h2 className="text-4xl font-bold text-gray-800 mb-6">
           Comfort Meets Style
         </h2>
@@ -11,7 +11,7 @@ export default function SofaFeatureSection() {
           We can also provide a design of your choice and bring it to life for you.
         </p>
 
-        <div className="grid gap-8 md:grid-cols-3" style={{ display: "flex", gap: "20rem", marginTop: "5rem" }}>
+        <div className="grid gap-8 md:grid-cols-3 sm:grid-cols-1" style={{ display: "flex", gap: "3rem", marginTop: "5rem" }}>
           <FeatureCard
             icon={<Couch style={{ height: "112px", width: "112px", marginBottom: "1rem", color: "#f97316" }} />}
             title="Supreme Comfort"
