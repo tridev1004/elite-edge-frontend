@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFacebookF,
   faInstagram,
 
 } from "@fortawesome/free-brands-svg-icons";
@@ -92,13 +91,7 @@ const Footer = () => {
                     className="pt-2 hover-color-yellow"
                   />
                 </Link>
-                <Link to="/" className="me-4 link-light">
-                  <FontAwesomeIcon
-                    icon={faFacebookF}
-                    size="lg"
-                    className="hover-color-yellow"
-                  />
-                </Link>
+              
                
                
               </div>
