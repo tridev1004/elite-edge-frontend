@@ -4,8 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
   faInstagram,
-  faLinkedin,
-  faGithub,
+
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faPhoneVolume,
@@ -100,13 +99,7 @@ const Footer = () => {
                     className="hover-color-yellow"
                   />
                 </Link>
-                <Link to="/" className="me-4 link-light">
-                  <FontAwesomeIcon
-                    icon={faLinkedin}
-                    size="lg"
-                    className="hover-color-yellow"
-                  />
-                </Link>
+               
                
               </div>
             </div>
