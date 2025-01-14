@@ -16,7 +16,7 @@ const Services = () => {
             <FontAwesomeIcon icon={faCube}/>
             </div>
             <h3>  Shipping to All over India</h3>
-            <p>On all orders over</p>
+            <p>Delivery Charges may applocable..</p>
         </div>
         <div className={`col-sm-12 col-md-4 mb-md-0 mb-4 col-lg-4 text-center ${styles.item}`}>
             <div className={styles.icon}>
@@ -29,8 +29,8 @@ const Services = () => {
             <div className={styles.icon}>
             <FontAwesomeIcon icon={faRefresh}/>
             </div>
-            <h3>30 Days Return</h3>
-            <p>Return it within 20 day for an exchange</p>
+            <h3>5 years Warranty on all our Products</h3>
+            <p>Good for a long time.</p>
         </div>
       </div>
     </div>
