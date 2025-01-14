@@ -42,10 +42,10 @@ const ContactForm = () => {
     try {
       // Send email using EmailJS API
         await emailjs.send(
-        "service_e1wev9l",
-        "template_wh85pl4",
+        "service_m2691ll",
+        "template_0enywyn",
         templateParams,
-        "TsoWOt-ZQTaLMUt3q"
+        "vzmsbh2u2QyE9m6Ee"
         );
     
         toast.success("Thanks for contacting us. We'll get back to you as soon as possible.")
