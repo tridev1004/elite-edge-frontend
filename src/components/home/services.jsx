@@ -16,7 +16,7 @@ const Services = () => {
             <FontAwesomeIcon icon={faCube}/>
             </div>
             <h3>  Shipping to All over India</h3>
-            <p>Delivery Charges may applocable..</p>
+            <p>Delivery Charges may applicable..</p>
         </div>
         <div className={`col-sm-12 col-md-4 mb-md-0 mb-4 col-lg-4 text-center ${styles.item}`}>
             <div className={styles.icon}>
