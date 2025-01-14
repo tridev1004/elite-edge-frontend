@@ -6,12 +6,15 @@ import Trending from './../../components/home/trending';
 import BrandCategories from './../../components/home/brandCategories';
 import Categories from './../../components/home/categories';
 import Services from "../../components/home/services";
+import SofaFeatureSection from "../../components/home/SofaFeature";
 
 const Home = () => {
   return (
-    <div id="home">
+    <div id="home ">
       <MainCarousel/>
       <Trending/>
+      <SofaFeatureSection/>
+      
       <BrandCategories/>
       <Categories/>
       <Services/>

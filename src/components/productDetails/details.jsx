@@ -175,6 +175,7 @@ const Details = ({ product }) => {
             onColorChange={handleColorChange}
           />
         </div>
+        <p className="text-muted test-gray">The fabric of this color can be customized and the dimensions are also customizable </p>
         {inCart ? (
           <Quantity
             active={activeQuantity}
