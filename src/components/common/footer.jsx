@@ -83,8 +83,9 @@ const Footer = () => {
               <h6 className="text-light d-none d-sm-block ">Follow Us</h6>
               <div className="social-icons">
                 <Link
-                  to="https://instagram.com/eliteedge_store4?igshid=MzNlNGNkZWQ4Mg=="
+                  to="https://www.instagram.com/eliteedgefurniture/"
                   className="me-4 link-light  hover-color-yellow"
+                  target="_blank"
                 >
                   <FontAwesomeIcon
                     icon={faInstagram}
