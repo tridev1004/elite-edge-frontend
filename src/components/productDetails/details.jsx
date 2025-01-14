@@ -79,7 +79,7 @@ const Details = ({ product }) => {
   `;
   
     const imageUrl = product.images?.[0]?.src || ""; // Assuming product.images contains an array of images
-    const message = `Hello, I would like to buy the following product:\n\n${productDetails}\nPlease refer to the attached image.`;
+    const message = `Hello, I would like to buy the following product:\n\n${productDetails}\nPlease refer to the attached image.   ${imageUrl}`;
     const encodedMessage = encodeURIComponent(message);
   
     const whatsappNumber = "+919319748616"; // Replace with your WhatsApp number
