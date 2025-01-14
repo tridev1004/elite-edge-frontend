@@ -64,9 +64,9 @@ const Footer = () => {
           <div className="col-lg-5 col-md-6 col-sm-12 mb-4">
             <img src={logo1} alt="" style={{ width: "9rem" }} />
             <p className="pt-4 footer-color">
-              Since 2013 we’ve been creating industrial design, residential
-              architecture, commercial interiors. Chase mice attack feet but rub
-              face on everything cepteur sint occaecat cupidatat proident.
+             we’ve been creating industrial design, residential
+              architecture, commercial interiors.
+             
             </p>
             <h6
               className="text-light footer-toggle d-sm-none d-flex "
@@ -126,7 +126,7 @@ const Footer = () => {
               </div>
               <div>
                 <p>
-                  <Link to="tel:+201003533427">
+                  <Link to="tel:+91 9528188739">
                     <FontAwesomeIcon
                       icon={faPhoneVolume}
                       className="text-light  pt-4 pb-2 d-block hover-color-yellow"
@@ -141,17 +141,17 @@ const Footer = () => {
 
                   <span className="contacts">
                     <Link
-                      to="tel:+201003533427"
+                      to="tel:+ 919528188739"
                       className=" hover-color-yellow footer-color"
                     >
-                      (+20) 1003533427
+                      (+91)  9528188739
                     </Link>
                   </span>
                 </p>
               </div>
               <div>
                 <p>
-                  <Link to="mailto:hello@domain.com">
+                  <Link to="mailto: elite11edge@gmail.com">
                     <FontAwesomeIcon
                       icon={faEnvelope}
                       className="text-light  pt-4 pb-2 d-block hover-color-yellow"
@@ -167,10 +167,10 @@ const Footer = () => {
 
                   <span className="contacts">
                     <Link
-                      to="mailto:eliteedgeproject20@gmail.com"
+                      to="mailto:elite11edge@gmail.com"
                       className=" hover-color-yellow footer-color"
                     >
-                      eliteedgeproject20@gmail.com
+                       elite11edge@gmail.com
                     </Link>
                   </span>
                 </p>

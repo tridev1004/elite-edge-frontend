@@ -54,7 +54,7 @@ const BrandCategories = () => {
               />
 
               <div className={styles.content}>
-                <h4>top trending</h4>
+                <h4>Explore Our Products</h4>
                 <h3>Outdoor</h3>
                 <Link
                   to="/shop"
