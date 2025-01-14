@@ -1,0 +1,153 @@
+/* styles.css */
+
+/* Base styles for the section */
+.sofa-feature-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: #f3f4f6; /* light gray background */
+}
+
+.sofa-feature-section h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #2d3748; /* dark gray */
+    margin-bottom: 1.5rem;
+}
+
+.sofa-feature-section p {
+    max-width: 40rem;
+    margin: 0 auto;
+    font-size: 1.125rem;
+    color: #4a5568; /* muted gray */
+    margin-bottom: 3rem;
+}
+
+/* Grid layout for feature cards */
+.sofa-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+    gap: 3rem;
+    margin-top: 5rem;
+}
+
+/* Feature card styles */
+.feature-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-card .icon {
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #2d3748; /* dark gray */
+    margin-top: 1rem;
+}
+
+.feature-card p {
+    color: #4a5568;
+    margin-top: 0.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* For medium-sized screens, switch to 1 column */
+    .sofa-feature-grid {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 2rem;
+    }
+
+    .sofa-feature-section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    .sofa-feature-section h2 {
+        font-size: 1.875rem;
+    }
+
+    .sofa-feature-section p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* For small screens (mobile), reduce spacing and adjust layout */
+    .sofa-feature-section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .sofa-feature-section h2 {
+        font-size: 1.625rem; /* slightly smaller heading */
+        margin-bottom: 1rem;
+    }
+
+    .sofa-feature-section p {
+        font-size: 0.875rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-bottom: 1.5rem; /* Reduce bottom margin */
+    }
+
+    .sofa-feature-grid {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 1.5rem; /* Reduced gap for smaller screens */
+    }
+
+    .feature-card .icon {
+        height: 48px;
+        width: 48px;
+    }
+
+    .feature-card h3 {
+        font-size: 1rem;
+    }
+
+    .feature-card p {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 375px) {
+    /* For extra small screens (smaller phones), make further adjustments */
+    .sofa-feature-section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .sofa-feature-section h2 {
+        font-size: 1.5rem; /* Even smaller heading for ultra-small screens */
+        margin-bottom: 0.75rem;
+    }
+
+    .sofa-feature-section p {
+        font-size: 0.75rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .sofa-feature-grid {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 1rem; /* Reduced gap even more for very small screens */
+    }
+
+    .feature-card .icon {
+        height: 40px;
+        width: 40px;
+    }
+
+    .feature-card h3 {
+        font-size: 0.875rem; /* Further reduce font size */
+    }
+
+    .feature-card p {
+        font-size: 0.75rem; /* Reduce font size for extra-small screens */
+    }
+}
