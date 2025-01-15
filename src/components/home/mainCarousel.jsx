@@ -12,6 +12,8 @@ import  styles  from "./../../pages/home/home.module.css"
 import homeSlider1 from "../../assets/home-slider/slide-1.jpg";
 import homeSlider3 from "../../assets/home-slider/slide-3.jpg";
 import homeSlider2 from "../../assets/home-slider/slide-2.jpg";
+import homeSlider5 from "../../assets/home-slider/slide-5.jpg";
+
 
 const MainCarousel = () => {
 
@@ -34,6 +36,13 @@ const MainCarousel = () => {
           content: "Nano Tube Suspension Pendant Lamp",
           discount: 10,
         },
+        {
+          id: 4,
+          src: homeSlider5,
+          content: "Sofa and chairs",
+          discount: 10,
+        }, 
+        
       ];
 
     return (
