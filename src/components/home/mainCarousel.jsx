@@ -10,9 +10,11 @@ import  styles  from "./../../pages/home/home.module.css"
 
 // images
 import homeSlider1 from "../../assets/home-slider/slide-1.jpg";
-import homeSlider3 from "../../assets/home-slider/slide-3.jpg";
+import homeSlider7 from "../../assets/home-slider/slide-7.jpg";
 import homeSlider2 from "../../assets/home-slider/slide-2.jpg";
 import homeSlider5 from "../../assets/home-slider/slide-5.jpg";
+import homeSlider6 from "../../assets/home-slider/slide-6.jpg";
+
 
 
 const MainCarousel = () => {
@@ -21,24 +23,24 @@ const MainCarousel = () => {
         {
           id: 1,
           src: homeSlider1,
-          content: "Outdoor Wicker Hanging Chair",
+          content: " Chair",
           discount: 50,
         },
         {
           id: 2,
           src: homeSlider2,
-          content: "Ray Pendant Lamp Choose Your Comfort",
+          content: " Choose Your Comfort",
           discount: 70,
         },
         {
           id: 3,
-          src: homeSlider3,
-          content: "Nano Tube Suspension Pendant Lamp",
+          src: homeSlider6,
+          content: "High Quality Wood Furniture",
           discount: 10,
         },
         {
           id: 4,
-          src: homeSlider5,
+          src: homeSlider7,
           content: "Sofa and chairs",
           discount: 10,
         }, 
