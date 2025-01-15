@@ -50,7 +50,21 @@ const Header = ({ isMediumScreen, cart }) => {
       >
         <div className="container-fluid">
           <Link to="/" className="nav-link">
-            <img src={logo} alt="eliteedge logo" className="logo img-fluid" />
+            <img
+              src={logo}
+              alt="eliteedge logo"
+              className="logo img-fluid"
+              style={{
+                width: "10rem",
+                height: "auto",
+                margin: "auto",
+                borderRadius: "10%",
+                display: "block",
+                background: "transparent !important", // Removes any background
+                border: "none",     // Optional: remove border if not needed
+                boxShadow: "none",  // Optional: remove shadow if not needed
+              }}
+            />
           </Link>
           <button
             className="navbar-toggler"

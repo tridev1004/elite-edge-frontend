@@ -61,7 +61,13 @@ const Footer = () => {
       <div className="container ">
         <div className="row footer-top pb-4">
           <div className="col-lg-5 col-md-6 col-sm-12 mb-4">
-            <img src={logo1} alt="" style={{ width: "9rem" }} />
+            <img src={logo1} alt=""   style={{
+                width: "9rem",
+                height: "auto",
+                margin: "auto",
+                borderRadius: "10%",
+                display: "block",
+              }} />
             <p className="pt-4 footer-color">
              we’ve been creating industrial design, residential
               architecture, commercial interiors.

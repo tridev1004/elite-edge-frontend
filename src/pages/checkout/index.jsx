@@ -35,6 +35,7 @@ const Checkout = () => {
             src={logoimg}
             alt=" logo img"
             className={`${style.logoCheckout} mt-3`}
+            
           />
         </Link>
         <div className={`${style.checkoutSmalContainer} row mt-5 `}>
