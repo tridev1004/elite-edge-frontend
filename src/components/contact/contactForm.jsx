@@ -42,7 +42,7 @@ const ContactForm = () => {
     try {
       // Send email using EmailJS API
         await emailjs.send(
-        "service_m2691ll",
+        "service_besq8bj",
         "template_0enywyn",
         templateParams,
         "vzmsbh2u2QyE9m6Ee"
