@@ -73,7 +73,7 @@ const Details = ({ product }) => {
   *Product Details:*
   - Name: ${product.name}
   - Price: ${product.price}
-  - Discount: ${product.discount || "None"}
+  - Discound: ${product.discount || "None"}
   - Selected Color: ${colorName}
   - Quantity: ${activeQuantity}
   `;
@@ -97,6 +97,8 @@ const Details = ({ product }) => {
       setShowBuyBtnSpinner(false);
     }
   }, [inCart]);
+  const maxLength = 100;
+  const isLongDescription = product.description.length > maxLength;
 
   useEffect(() => {
     setBtnSpinner(false);
@@ -152,7 +154,9 @@ const Details = ({ product }) => {
       <p
         className={`${style.description} overflow-hidden mt-3 mb-4 color-secondary-gray`}
       >
-        {product.description}
+        {!isLongDescription
+          ? product.description
+          : `${product.description.substring(0, maxLength)}...`}
       </p>
       <div className="border-top border-bottom py-4">
         <div className="d-flex align-items-center gap-2 mb-4">
