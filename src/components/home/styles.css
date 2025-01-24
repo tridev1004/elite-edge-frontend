@@ -13,7 +13,12 @@
     color: #2d3748; /* dark gray */
     margin-bottom: 1.5rem;
 }
-
+.carouselImage {
+    width: 100%;
+    height: 500px; /* Set your desired height */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+  }
+  
 .sofa-feature-section p {
     max-width: 40rem;
     margin: 0 auto;
