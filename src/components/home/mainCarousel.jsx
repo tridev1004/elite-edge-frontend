@@ -10,10 +10,9 @@ import  styles  from "./../../pages/home/home.module.css"
 
 // images
 import homeSlider1 from "../../assets/home-slider/slide-1.jpg";
-import homeSlider7 from "../../assets/home-slider/slide-7.jpg";
+import homeSlider7 from "../../assets/home-slider/slide-8.jpg";
 import homeSlider2 from "../../assets/home-slider/slide-2.jpg";
-import homeSlider5 from "../../assets/home-slider/slide-5.jpg";
-import homeSlider6 from "../../assets/home-slider/slide-6.jpg";
+import homeSlider6 from "../../assets/home-slider/slide-9.jpg";
 
 
 
