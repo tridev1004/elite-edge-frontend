@@ -181,11 +181,18 @@ const Header = ({ isMediumScreen, cart }) => {
                   </Link>
                 ) : (
                   <button
-                    className="btn p-0 color-main-gray hover-color-yellow"
+                    className="btn p-0 color-main-gray hover-color-yellow d-flex align-items-center gap-2"
                     onClick={() => dispatch(showLoginModal(true))}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      textDecoration: "none",
+                    }}
                   >
-                    <FontAwesomeIcon icon={faUnlock} />{" "}
-                    <span className="fw-semibold"> Login / Register</span>
+                    <FontAwesomeIcon icon={faUnlock} />
+
+                    <span className="fw-semibold me-2 "> Login / Register</span>
                   </button>
                 )}
                 <Link
