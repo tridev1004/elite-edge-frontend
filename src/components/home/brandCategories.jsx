@@ -17,8 +17,8 @@ const BrandCategories = () => {
   return (
     <>
       <div className="container-fluid">
-        <div className={`row mx-0 ${styles.brandCategory}`}>
-          <div className={`col-10 col-md-4`}>
+        <div className={`row g-4 ${styles.brandCategory}`}>
+          <div className={`col-12 col-sm-6 col-md-4`}>
             <div
               className={`${styles.modifyImage} overflow-hidden position-relative d-flex justify-content-start align-items-center`}
             >
@@ -45,7 +45,7 @@ const BrandCategories = () => {
               </div>
             </div>
           </div>
-          <div className={`col-10 col-md-4`}>
+          <div className={`col-12 col-sm-6 col-md-4`}>
             <div
               className={`${styles.modifyImage} overflow-hidden position-relative d-flex justify-content-start align-items-center`}
             >
@@ -72,7 +72,7 @@ const BrandCategories = () => {
               </div>
             </div>
           </div>
-          <div className={`col-10 col-md-4`}>
+          <div className={`col-12 col-sm-6 col-md-4`}>
             <div
               className={`${styles.modifyImage} overflow-hidden position-relative d-flex justify-content-start align-items-center`}
             >
