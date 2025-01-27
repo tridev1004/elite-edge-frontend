@@ -20,7 +20,6 @@ export default function PaymentMethod() {
   const [buttonText, setButtonText] = useState("Confirm order");
   const [user,setUser] = useState();
  const action = useSelector(state => state);
- console.log(action)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -34,7 +33,6 @@ export default function PaymentMethod() {
 
     const fetchData = async () => {
       const response = await axiosInstance.get(`/user-get/${userId}`);
-      console.log(response.data);
       setUser(response.data);
 
     }

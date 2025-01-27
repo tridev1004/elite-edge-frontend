@@ -49,7 +49,6 @@ const Brands = () => {
     setIsdragged(true);
   };
 
-  console.log(brands);
   return brands.length > 0 ? (
     <section className="brands-slider py-5 ps-3 border border-start-0 border-end-0">
       <div

@@ -14,6 +14,7 @@ import Spinner from "../common/spinner";
 
 // style
 import dashStyle from "./../../pages/dashboard/dashboard.module.css";
+import { toast } from "sonner";
 
 const UsersDash = () => {
   const [allUsers, setAllUsers] = useState([]);
@@ -49,7 +50,7 @@ const UsersDash = () => {
           setShowSpinner(false);
         })
         .catch((err) => {
-          console.log(err);
+          toast.error(err.message);
         });
     } else {
       // If search query is not empty, fetch search results
