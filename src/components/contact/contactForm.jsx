@@ -52,7 +52,6 @@ const ContactForm = () => {
         
     } 
     catch (error) {
-        console.log(error.text);
         
         toast.error("Failed to send Message! Please try again later!");
     }
