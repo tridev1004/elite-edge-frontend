@@ -12,6 +12,7 @@ import Spinner from "../common/spinner";
 import ConfirmPopup from "../common/confirmPopup";
 //style
 import style from "../../pages/checkout/checkout.module.css";
+import { toast } from "sonner";
 
 export default function PaymentMethod() {
   const [showWarning, setShowWarning] = useState(false);
@@ -146,8 +147,7 @@ export default function PaymentMethod() {
         setButtonText("order Done");
       })
       .catch(error => {
-        console.log(error.response);
-        dispatch(showToast("Unable to make order, please try again."));
+        toast.error("Unable to make order, please try again.");
         SetShowBtnSpinner(false);
       });
   };
