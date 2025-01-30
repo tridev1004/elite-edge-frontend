@@ -22,7 +22,7 @@ export const getCart = (token) => {
     .then((res) => {
       store.dispatch(setCart({ ...res.data, role: "user" }));
     })
-    .catch((error) => console.log(error));
+
 };
 
 export const addItemToCart = (cartId, id, color) => {
@@ -43,7 +43,6 @@ export const addItemToCart = (cartId, id, color) => {
       .then((res) => {
         getCart(token);
       })
-      .catch((error) => console.log(error));
   } else {
     store.dispatch(showLoginModal(true));
   }
@@ -67,7 +66,6 @@ export const updateItemQuantity = (cartId, id, quantity, color) => {
       .then((res) => {
         store.dispatch(setCart({ ...res.data, role: "user" }));
       })
-      .catch((error) => console.log(error));
   } else {
     store.dispatch(showLoginModal(true));
   }
@@ -91,7 +89,6 @@ export const deleteItemFromCart = (cartId, id, color) => {
       .then((res) => {
         store.dispatch(setCart({ ...res.data, role: "user" }));
       })
-      .catch((error) => console.log(error));
   } else {
     store.dispatch(showLoginModal(true));
   }
@@ -115,7 +112,6 @@ export const emptyCart = (cartId) => {
       .then((res) => {
         store.dispatch(setCart({ ...res.data, role: "user" }));
       })
-      .catch((error) => console.log(error));
   } else {
     store.dispatch(showLoginModal(true));
   }
