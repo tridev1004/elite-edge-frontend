@@ -43,7 +43,6 @@ const SearchPage = () => {
         setTotalPages(res.data.totalPages);
         setTotalResults(res.data.totalResults);
       })
-      .catch((error) => console.log(error));
   };
 
   const handlePageChange = (page) => {

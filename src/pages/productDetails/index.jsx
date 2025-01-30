@@ -30,11 +30,8 @@ const ProductDetails = () => {
             },
           })
           .then((productsRes) => setRelatedProducts(productsRes.data.data))
-          .catch((error) => console.log(error));
       })
-      .catch((error) => console.log(error));
   }, [id]);
-  console.log(data)
 
   return data ? (
     <div id="prodcut-details" className="pb-5">

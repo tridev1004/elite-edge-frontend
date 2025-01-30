@@ -80,7 +80,6 @@ const Shop = () => {
           });
         }
       })
-      .catch((error) => console.log(error));
   };
 
   const updateFilters = (key, value) => {
@@ -151,7 +150,6 @@ const Shop = () => {
       .then((res) => {
         setCategories(res.data.data);
       })
-      .catch((error) => console.log(error));
   }, []);
 
   useLayoutEffect(() => {
