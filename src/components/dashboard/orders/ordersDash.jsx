@@ -49,9 +49,7 @@ const OrdersDash = () => {
           setTotaOrders(res.data.totalOrders);
           setShowSpinner(false);
         })
-        .catch(err => {
-          console.log(err);
-        });
+      
     } else {
       // If search query is not empty
       axiosInstance
@@ -66,9 +64,7 @@ const OrdersDash = () => {
           setAllorders(res.data.data);
           setTotaOrders(res.data.totalOrders);
         })
-        .catch(err => {
-          console.log(err);
-        });
+     
     }
   }, [currentPage, searchQuery]);
 
@@ -100,16 +96,9 @@ const OrdersDash = () => {
             dispatch(showToast("orders was deleted successfully!"));
             setOrderIdToDelete("");
           })
-          .catch(err => {
-            console.log(err);
-          });
+       
       })
-      .catch(err => {
-        console.log(err);
-        dispatch(
-          showToast(`error occur in order delete order ${id} !try again `)
-        );
-      });
+      
   }
   // expand object id
   function showAllId(event) {
