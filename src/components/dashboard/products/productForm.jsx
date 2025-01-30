@@ -31,14 +31,12 @@ const ProductForm = ({
       .then((res) => {
         setBrands(res.data.allData);
       })
-      .catch((error) => console.log(error));
 
     axiosInstance
       .get("/categories")
       .then((res) => {
         setCategories(res.data.allData);
       })
-      .catch((error) => console.log(error));
   }, []);
 
   return (
