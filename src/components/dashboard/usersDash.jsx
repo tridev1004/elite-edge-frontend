@@ -66,9 +66,7 @@ const UsersDash = () => {
           setAllUsers(res.data.data);
           setTotaUsers(res.data.totalUsers);
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        
     }
   }, [currentPage, searchQuery]);
 
@@ -101,9 +99,7 @@ const UsersDash = () => {
             setTotaUsers(res.data.totalUsers);
             setUserIdToDelete("");
           })
-          .catch((err) => {
-            console.log(err);
-          });
+        
       })
       .catch((err) => {
         console.log(err);

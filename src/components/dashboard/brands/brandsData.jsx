@@ -65,9 +65,7 @@ const BrandsData = () => {
           setAllBrands(res.data.data);
           setTotalBrands(res.data.totalBrands);
         })
-        .catch((err) => {
-          console.log(err);
-        });
+       
     }
   }, [currentPage, searchQuery]);
 
@@ -114,9 +112,7 @@ const BrandsData = () => {
             setBrandIdToDelete("");
             dispatch(setBrands(res.data.allData));
           })
-          .catch((err) => {
-            console.log(err);
-          });
+       
       })
       .catch((err) => {
         console.log(err);
