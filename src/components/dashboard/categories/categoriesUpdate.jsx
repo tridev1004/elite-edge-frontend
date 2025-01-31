@@ -53,10 +53,7 @@ const CategoryUpdate = () => {
       .then(() => {
         dispatch(showToast("Category was updated successfully!"));
       })
-      .catch((err) => {
-        console.log(err);
-        setErrorMessage("Unable to update category data, please try again.");
-      });
+   
   };
 
   if (!initialValues) {

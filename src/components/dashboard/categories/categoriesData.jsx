@@ -46,9 +46,7 @@ const CategoriesData = () => {
           setAllCategories(res.data);
           setTotalCategories(res.data.totalCategories);
         })
-        .catch((err) => {
-          console.log(err);
-        });
+       
     } else {
       // If search query is not empty, fetch search results
       axiosInstance
@@ -63,9 +61,7 @@ const CategoriesData = () => {
           setAllCategories(res.data);
           setTotalCategories(res.data.totalCategories);
         })
-        .catch((err) => {
-          console.log(err);
-        });
+      
     }
   }, [currentPage, searchQuery]);
 
@@ -113,15 +109,12 @@ const CategoriesData = () => {
           toast.error("Failed to delete Category! Please try again later!");
         }
       })
-      .catch((error) => {
-        console.log("Error deleting category:", error);
-      });
+    
   }
 
   function onPageChange(page) {
     setCurrentPage(page);
   }
-  console.log(displayedCategories);
 
   return (
     <div className="py-4">
