@@ -48,9 +48,7 @@ const BrandsData = () => {
           setTotalBrands(res.data.totalBrands);
           dispatch(setBrands(res.data.allData));
         })
-        .catch((err) => {
-          console.log(err);
-        });
+    
     } else {
       // If search query is not empty, fetch search results
       axiosInstance
@@ -114,12 +112,8 @@ const BrandsData = () => {
           })
        
       })
-      .catch((err) => {
-        console.log(err);
-        showToast("Failed to delete brand! Please try again later!");
-      });
+    
   }
-  console.log(allBrands);
   return (
     <div className="py-4">
       <h1 className={`mb-2 h4 py-3 ps-4 ${dashStyle["fw-bold"]}`}>
